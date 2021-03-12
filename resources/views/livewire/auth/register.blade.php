@@ -23,68 +23,57 @@
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
                 <form wire:submit.prevent="register">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
-                            Name
-                        </label>
-
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input wire:model.lazy="name" id="name" type="text" required autofocus
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('name') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
-                        </div>
-
-                        @error('name')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
+                        <x-label for="company_name" value="{{ __('Company Name') }}" />
+                        <x-input id="company_name" class="block mt-1 w-full" type="text" name="company_name"
+                            :value="old('company_name')" required autofocus autocomplete="company_name" />
+                        <x-input-error for="company_name" class="mt-2" />
                     </div>
 
                     <div class="mt-6">
-                        <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                            Email address
-                        </label>
-
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input wire:model.lazy="email" id="email" type="email" required
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
-                        </div>
-
-                        @error('email')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
+                        <x-label for="full_name" value="{{ __('Full Name') }}" />
+                        <x-input id="full_name" class="block mt-1 w-full" type="text" name="full_name"
+                            :value="old('full_name')" required autofocus autocomplete="full_name" />
+                        <x-input-error for="full_name" class="mt-2" />
                     </div>
 
                     <div class="mt-6">
-                        <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                            Password
-                        </label>
-
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input wire:model.lazy="password" id="password" type="password" required
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('password') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
-                        </div>
-
-                        @error('password')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
+                        <x-label for="domain" value="{{ __('Domain') }}" />
+                        <x-input id="domain" class="block mt-1 w-full" type="text" name="domain" :value="old('domain')"
+                            required autofocus autocomplete="domain" />
+                        <x-input-error for="domain" class="mt-2" />
                     </div>
 
                     <div class="mt-6">
-                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
-                            Confirm Password
-                        </label>
+                        <x-label for="email" value="{{ __('Email') }}" />
 
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input wire:model.lazy="passwordConfirmation" id="password_confirmation" type="password"
-                                required
-                                class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                        </div>
+                        <x-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')"
+                            required autofocus autocomplete="email" />
+                        <x-input-error for="email" class="mt-2" />
+                    </div>
+
+                    <div class="mt-6">
+                        <x-label for="password" value="{{ __('Password') }}" />
+
+                        <x-input id="password" class="block mt-1 w-full" type="password" name="password"
+                            :value="old('password')" required autofocus autocomplete="password" />
+                        <x-input-error for="password" class="mt-2" />
+                    </div>
+
+                    <div class="mt-6">
+
+                        <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+
+                        <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                            name="passwordConfirmation" :value="old('password')" required autofocus
+                            autocomplete="password" />
+                        <x-input-error for="password" class="mt-2" />
+
                     </div>
 
                     <div class="mt-6">
                         <span class="block w-full rounded-md shadow-sm">
-                            <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                                Register
-                            </button>
+                            <x-button class="w-full bg-indigo-600 hover:bg-indigo-500 flex justify-center">Register
+                            </x-button>
                         </span>
                     </div>
                 </form>

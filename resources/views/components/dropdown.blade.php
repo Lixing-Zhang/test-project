@@ -9,7 +9,7 @@
 @props(['label' => ''])
 
 <div x-data="{ open: false }" @keydown.window.escape="open = false" @click.away="open = false"
-    class="relative inline-block text-left z-0">
+    class=" inline-block text-left z-0">
     <div>
         <span class="rounded-md shadow-sm">
             <button @click="open = !open" type="button"
@@ -30,7 +30,7 @@
         x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95"
         x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
         x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95"
-        class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-50">
+        class="origin-top-right absolute mt-2 w-25 rounded-md shadow-lg z-50">
         <div class="rounded-md bg-white shadow-xs">
             <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                 {{ $slot }}

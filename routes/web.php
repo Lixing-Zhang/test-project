@@ -8,6 +8,7 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\Contacts;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+Route::view('/home', 'welcome')->name('home');
+
+Route::view('/', 'welcome')->name('welcome');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
@@ -44,6 +47,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('password/confirm', Confirm::class)
         ->name('password.confirm');
+
+    Route::get('/contacts', Contacts::class)->name('contacts');
 });
 
 Route::middleware('auth')->group(function () {
@@ -51,6 +56,6 @@ Route::middleware('auth')->group(function () {
         ->middleware('signed')
         ->name('verification.verify');
 
-    Route::post('logout', LogoutController::class)
+    Route::get('logout', LogoutController::class)
         ->name('logout');
 });

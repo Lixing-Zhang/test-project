@@ -18,4 +18,9 @@ class Contact extends Model
             ? Storage::disk('public')->url($this->avatar)
             : 'https://ui-avatars.com/api/?name=' . urlencode($this->full_name);
     }
+
+    public function getDateForHumansAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
 }

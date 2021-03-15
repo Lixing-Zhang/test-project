@@ -91,7 +91,7 @@
                                 </x-table.cell>
 
                                 <x-table.cell>
-                                    <span class="text-gray-600 font-medium">{{ $contact->created_at }}</span>
+                                    <span class="text-gray-600 font-medium">{{ $contact->date_for_humans }}</span>
                                 </x-table.cell>
 
                                 <x-table.cell>
